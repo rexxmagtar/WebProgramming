@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c8934412-d090-4350-ab5c-e0f6470434ff" name="Default Changelist" comment="" />
+    <list default="true" id="c8934412-d090-4350-ab5c-e0f6470434ff" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/com/company/Main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/company/controller/Controller.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/company/controller/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/company/controller/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/company/model/Circle.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/company/model/CircleZone.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/company/model/DataProvider.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/company/model/Point.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/company/model/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/company/model/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/company/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/company/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/company/view/FigureView.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/company/view/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/company/view/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/glass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/x.png" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,15 +32,21 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
   <component name="ProjectId" id="1hCS8ZSreHkaVrldw1aQGubNzw7" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -59,6 +83,7 @@
       <workItem from="1599513425809" duration="8967000" />
       <workItem from="1599577501589" duration="846000" />
       <workItem from="1599579160627" duration="2100000" />
+      <workItem from="1599588913422" duration="243000" />
     </task>
     <servers />
   </component>
