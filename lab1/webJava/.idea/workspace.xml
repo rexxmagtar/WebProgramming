@@ -2,23 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8934412-d090-4350-ab5c-e0f6470434ff" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/com/company/Main.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/company/controller/Controller.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/company/controller/package-summary.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/company/controller/package-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/company/model/Circle.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/company/model/CircleZone.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/company/model/DataProvider.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/company/model/Point.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/company/model/package-summary.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/company/model/package-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/company/package-summary.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/company/package-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/company/view/FigureView.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/company/view/package-summary.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/company/view/package-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/glass.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/webJava/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/webJava/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/webJava/com/company/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/webJava/com/company/controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/webJava/com/company/model/Circle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/webJava/com/company/model/Circle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/webJava/com/company/model/CircleZone.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/webJava/com/company/model/CircleZone.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/webJava/com/company/model/DataProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/webJava/com/company/model/DataProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/webJava/com/company/model/Point.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/webJava/com/company/model/Point.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/webJava/com/company/view/FigureView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/webJava/com/company/view/FigureView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/controller/Controller.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +75,10 @@
       <workItem from="1599513425809" duration="8967000" />
       <workItem from="1599577501589" duration="846000" />
       <workItem from="1599579160627" duration="2100000" />
-      <workItem from="1599588913422" duration="243000" />
+      <workItem from="1599588913422" duration="985000" />
+      <workItem from="1599599186683" duration="175000" />
+      <workItem from="1599662237992" duration="2200000" />
+      <workItem from="1600344131547" duration="48000" />
     </task>
     <servers />
   </component>
@@ -103,26 +98,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="526" y="160" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.824@0.0.1536.824" timestamp="1599588165048" />
-    <state x="548" y="167" key="FileChooserDialogImpl" timestamp="1599588163394">
+    <state x="548" y="167" key="FileChooserDialogImpl" timestamp="1600344174662">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="548" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1599588163394" />
-    <state width="941" height="210" key="GridCell.Tab.0.bottom" timestamp="1599588165111">
+    <state x="548" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1600344174662" />
+    <state width="939" height="210" key="GridCell.Tab.0.bottom" timestamp="1599681972996">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="941" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1599588165111" />
-    <state width="941" height="210" key="GridCell.Tab.0.center" timestamp="1599588165110">
+    <state width="939" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1599681972996" />
+    <state width="939" height="210" key="GridCell.Tab.0.center" timestamp="1599681972995">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="941" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1599588165110" />
-    <state width="941" height="210" key="GridCell.Tab.0.left" timestamp="1599588165110">
+    <state width="939" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1599681972995" />
+    <state width="939" height="210" key="GridCell.Tab.0.left" timestamp="1599681972995">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="941" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1599588165110" />
-    <state width="941" height="210" key="GridCell.Tab.0.right" timestamp="1599588165110">
+    <state width="939" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1599681972995" />
+    <state width="939" height="210" key="GridCell.Tab.0.right" timestamp="1599681972995">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="941" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1599588165110" />
+    <state width="939" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1599681972995" />
     <state width="746" height="261" key="GridCell.Tab.1.bottom" timestamp="1599577441079">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -143,17 +138,17 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1599587955096" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1599579163343">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1600344133537">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1599579163343" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1600344133537" />
     <state x="399" y="109" width="738" height="606" key="find.popup" timestamp="1599571970050">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="399" y="109" width="738" height="606" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1599571970050" />
-    <state x="209" y="33" key="new project wizard" timestamp="1599586007167">
+    <state x="209" y="33" key="new project wizard" timestamp="1600344176577">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="209" y="33" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1599586007167" />
+    <state x="209" y="33" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1600344176577" />
   </component>
 </project>

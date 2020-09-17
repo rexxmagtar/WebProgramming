@@ -10,7 +10,7 @@ import javax.xml.crypto.Data;
 import java.util.ArrayList;
 
 /**
- * Controller class of the MVC pattern. Works with model and calls View's methods directly.
+ * Controller class of the MVC pattern. Works with Model and calls View's methods directly.
  */
 public class Controller {
 
