@@ -8,8 +8,15 @@ import com.company.goodies.Goody;
 import java.time.LocalDateTime;
 import java.util.Random;
 
+/**
+ * Class provides different goodies.
+ */
 public class GoodyFactory {
 
+    /**
+     * Generates random goody
+     * @return
+     */
     public static Goody getRandomGoody() {
         Random random = new Random();
 
@@ -28,6 +35,11 @@ public class GoodyFactory {
         }
     }
 
+    /**
+     * Generates random candy
+     * @param random used for candy generation
+     * @return random candy
+     */
     public static Candy getRandomCandy(Random random) {
         return new Candy(random.nextFloat() * 100,
                 random.nextFloat() * 10,
@@ -37,10 +49,19 @@ public class GoodyFactory {
                 random.nextBoolean());
     }
 
+    /**
+     * Generates random candy
+     * @return random candy
+     */
     public static Candy getRandomCandy() {
         return getRandomCandy(new Random());
     }
 
+    /**
+     * Generates random biscuit
+     * @param random used for biscuit generation
+     * @return random biscuit
+     */
     public static Biscuit getRandomBiscuit(Random random) {
         return new Biscuit(random.nextFloat() * 100,
                 random.nextFloat() * 10,
@@ -49,10 +70,19 @@ public class GoodyFactory {
                 Biscuit.Form.values()[random.nextInt(Biscuit.Form.values().length - 1)]);
     }
 
+    /**
+     * Generates random biscuit
+     * @return random biscuit
+     */
     public static Biscuit getRandomBiscuit() {
         return getRandomBiscuit(new Random());
     }
 
+    /**
+     * Generates random chocolate
+     * @param random used for chocolate generation
+     * @return random chocolate
+     */
     public static Chocolate getRandomChocolate(Random random) {
         return new Chocolate(random.nextFloat() * 100,
                 random.nextFloat() * 10,
@@ -61,6 +91,10 @@ public class GoodyFactory {
                 random.nextFloat() * 100);
     }
 
+    /**
+     * Generates random chocolate
+     * @return random chocolate
+     */
     public static Chocolate getRandomChocolate() {
         return getRandomChocolate(new Random());
     }

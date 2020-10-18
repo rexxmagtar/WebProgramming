@@ -7,8 +7,15 @@ import java.util.Comparator;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+/**
+ * Class does different operations with present.
+ */
 public class PresentManager {
 
+    /**
+     * Generate random present.
+     * @return random present
+     */
     public ArrayList<Goody> createPresent() {
 
         ArrayList<Goody> goodies = new ArrayList<>();
@@ -20,6 +27,11 @@ public class PresentManager {
         return goodies;
     }
 
+    /**
+     * gets goodies weight
+     * @param goodies
+     * @return weight of goodies
+     */
     public float getGoodiesWight(ArrayList<Goody> goodies) {
         float sum = 0;
 
@@ -31,6 +43,10 @@ public class PresentManager {
         return sum;
     }
 
+    /**
+     * sorts goodies by weight
+     * @param goodies
+     */
     public void sortGoodiesByWeight(ArrayList<Goody> goodies) {
         goodies.sort(new Comparator<Goody>() {
             @Override
@@ -44,13 +60,26 @@ public class PresentManager {
         });
     }
 
-    public void printPresentInfo(ArrayList<Goody> goodies) {
+    /**
+     * Print in console information about present
+     * @param goodies
+     */
+    public String getPresentInfoString(ArrayList<Goody> goodies) {
+        String result = "";
         for (var good :
                 goodies) {
-            System.out.println(good.toString());
+            result+=good.toString() + "\n";
         }
+
+        return result;
     }
 
+    /**
+     * Finds goody by name
+     * @param goodies
+     * @param name
+     * @return
+     */
     public ArrayList<Goody> findGoodyByName(ArrayList<Goody> goodies, String name) {
         return new ArrayList<Goody>(goodies.stream().filter(new Predicate<Goody>() {
             @Override
@@ -60,6 +89,13 @@ public class PresentManager {
         }).collect(Collectors.toList()));
     }
 
+    /**
+     * Finds goody by weight range
+     * @param goodies
+     * @param minWeight
+     * @param maxWeight
+     * @return
+     */
     public ArrayList<Goody> findGoodyByWeight(ArrayList<Goody> goodies, float minWeight, float maxWeight) {
         return new ArrayList<Goody>(goodies.stream().filter(new Predicate<Goody>() {
             @Override
@@ -69,6 +105,18 @@ public class PresentManager {
         }).collect(Collectors.toList()));
     }
 
+    /**
+     * Finds all goodies by specified criteria
+     * @param goodies
+     * @param minWeight
+     * @param maxWeight
+     * @param minCalories
+     * @param maxCalories
+     * @param minShelfLife
+     * @param maxShelfLife
+     * @param name
+     * @return
+     */
     public ArrayList<Goody> findGoodies(ArrayList<Goody> goodies, float minWeight, float maxWeight, float minCalories, float maxCalories, float minShelfLife, float maxShelfLife, String name) {
         return new ArrayList<Goody>(goodies.stream().filter(new Predicate<Goody>() {
             @Override
