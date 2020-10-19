@@ -1,6 +1,6 @@
-package com.company;
+package com.company.TextWraper;
 
-import com.company.parsers.SentenceParses;
+import com.company.parsers.SentenceParser;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -54,7 +54,7 @@ public class TextManager {
             ) {
                 sentences.add(sentence);
 
-                String sentenceText = SentenceParses.GetString(sentence);
+                String sentenceText = SentenceParser.GetString(sentence);
 
                 String regex = "[^a-zA-Zа-яА-Я]+";
 

@@ -1,13 +1,16 @@
 package com.company.parsers;
 
-import com.company.Sentence;
-import com.company.SentenceElement;
+import com.company.TextWraper.Sentence;
+import com.company.TextWraper.SentenceElement;
 
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SentenceParses {
+public class SentenceParser {
 
     public static Sentence ParseSentence(String sentence) {
         Sentence sentence1 = new Sentence();
@@ -23,11 +26,17 @@ public class SentenceParses {
             if(m.group().equals(" ")){
                 continue;
             }
-            if (m.group().matches(",|\\.|:|;")) {
-                sentenceElements.add(new SentenceElement(m.group(), SentenceElement.type.mark));
-            } else {
-                sentenceElements.add(new SentenceElement(m.group(), SentenceElement.type.word));
+            try {
+                if (m.group().matches(",|\\.|:|;")) {
+                    sentenceElements.add(new SentenceElement(m.group(), SentenceElement.type.mark));
+                } else {
+                    sentenceElements.add(new SentenceElement(m.group(), SentenceElement.type.word));
+                }
+            }catch (InvalidParameterException e){
+               Logger.getLogger("MyLogger")
+                        .throwing(SentenceElement.class.getName(),"Constructor",e);
             }
+
         }
 
         sentence1.sentenceElements = sentenceElements;

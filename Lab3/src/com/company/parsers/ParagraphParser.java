@@ -1,13 +1,10 @@
 package com.company.parsers;
 
-import com.company.Paragraph;
-import com.company.Sentence;
-import com.company.SentenceElement;
+import com.company.TextWraper.Paragraph;
+import com.company.TextWraper.Sentence;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class ParagraphParser {
 
@@ -28,7 +25,7 @@ public class ParagraphParser {
             if(sentenceStrings.get(i).equals(" ")){
                 continue;
             }
-            sentences.add(SentenceParses.ParseSentence(sentenceStrings.get(i)));
+            sentences.add(SentenceParser.ParseSentence(sentenceStrings.get(i)));
         }
 
         paragraph1.sentences = sentences;
@@ -40,7 +37,7 @@ public class ParagraphParser {
         String result = "";
 
         for (int i = 0; i < paragraph.sentences.size(); i++) {
-            result += SentenceParses.GetString(paragraph.sentences.get(i)) + " ";
+            result += SentenceParser.GetString(paragraph.sentences.get(i)) + " ";
         }
 
         return result;

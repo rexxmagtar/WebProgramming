@@ -1,13 +1,10 @@
 package com.company.parsers;
 
-import com.company.NormalText;
-import com.company.Paragraph;
-import com.company.Sentence;
+import com.company.TextWraper.NormalText;
+import com.company.TextWraper.Paragraph;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public  class NormalTextParser {
 
