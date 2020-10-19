@@ -1,11 +1,9 @@
 package com.company;
 
 import com.company.TextWraper.NormalText;
-import com.company.TextWraper.SentenceElement;
 import com.company.TextWraper.TextManager;
 import com.company.parsers.NormalTextParser;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.InvalidParameterException;
 import java.util.ResourceBundle;

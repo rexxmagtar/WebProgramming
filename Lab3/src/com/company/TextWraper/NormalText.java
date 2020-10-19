@@ -4,6 +4,9 @@ import com.company.Pair;
 
 import java.util.ArrayList;
 
+/**
+ * Text wrapper
+ */
 public class NormalText {
 
     public ArrayList<Paragraph> paragraphs;

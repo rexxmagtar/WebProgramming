@@ -6,8 +6,16 @@ import com.company.TextWraper.Sentence;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ *Used to parse paragraph to wrapper object and wise-versa
+ */
 public class ParagraphParser {
 
+    /**
+     * Parses paragraph to wrapper object
+     * @param paragraph
+     * @return
+     */
     public static Paragraph ParseParagraph(String paragraph) {
 
         Paragraph paragraph1 = new Paragraph();
@@ -33,6 +41,11 @@ public class ParagraphParser {
         return paragraph1;
     }
 
+    /**
+     * Gets string from paragraph wrapper
+     * @param paragraph
+     * @return
+     */
     public static String GetString(Paragraph paragraph) {
         String result = "";
 

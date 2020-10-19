@@ -12,8 +12,16 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
+/**
+Used to parse normal text to wrapper object and wise versa.
+ */
 public class NormalTextParser {
 
+    /**
+     * Parses text to wrapper object
+     * @param text
+     * @return
+     */
     public static NormalText ParseNormalText(String text) {
 
         NormalText normalText = new NormalText();
@@ -64,6 +72,11 @@ public class NormalTextParser {
         return normalText;
     }
 
+    /**
+     * Gets String from Parsed object
+     * @param text
+     * @return
+     */
     public static String GetString(NormalText text) {
 
         String result = "";

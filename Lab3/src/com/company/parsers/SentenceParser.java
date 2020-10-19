@@ -10,8 +10,16 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ *Used to parse sentence to wrapper object and wise-versa
+ */
 public class SentenceParser {
 
+    /**
+     * Parses sentence to wrapper object
+     * @param sentence
+     * @return
+     */
     public static Sentence ParseSentence(String sentence) {
         Sentence sentence1 = new Sentence();
 
@@ -44,6 +52,11 @@ public class SentenceParser {
         return sentence1;
     }
 
+    /**
+     * Gets string from wrapper object
+     * @param sentence
+     * @return
+     */
     public static String GetString(Sentence sentence) {
         String result = "";
 

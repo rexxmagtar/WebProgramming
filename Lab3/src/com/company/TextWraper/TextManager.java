@@ -7,8 +7,16 @@ import java.util.Comparator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Responsible for different operations with Text wrapper objects, such as sort, search, modification.
+ */
 public class TextManager {
 
+    /**
+     * Sorts all words in alphabetic order. Words sequences starting from new letters are written on new line.
+     * @param text
+     * @return
+     */
     public static String SortInAlphabeticOrder(NormalText text) {
 
         ArrayList<String> words = GetAllWords(text);
@@ -42,6 +50,11 @@ public class TextManager {
         return result;
     }
 
+    /**
+     * Gets first longest non word sequence
+     * @param text
+     * @return
+     */
     public static String GetFirstLongestMarksSequence(NormalText text) {
 
         ArrayList<Sentence> sentences = new ArrayList<>();
@@ -71,6 +84,10 @@ public class TextManager {
         return answer;
     }
 
+    /**
+     * Changes all first word's letters to upper case
+     * @param normalText
+     */
     public static void FirstLettersToUpper(NormalText normalText) {
 
         for (Paragraph paragraph : normalText.paragraphs
@@ -94,6 +111,11 @@ public class TextManager {
         }
     }
 
+    /**
+     * Gets all words from text wrapper
+     * @param text
+     * @return
+     */
     public static ArrayList<String> GetAllWords(NormalText text) {
 
         ArrayList<String> words = new ArrayList<>();

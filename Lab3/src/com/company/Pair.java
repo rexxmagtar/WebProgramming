@@ -1,5 +1,10 @@
 package com.company;
 
+/**
+ * Help class used to store 2 variables
+ * @param <K>
+ * @param <V>
+ */
 public class Pair<K, V> {
 
     private final K element0;

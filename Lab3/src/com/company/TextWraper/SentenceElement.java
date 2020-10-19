@@ -2,6 +2,9 @@ package com.company.TextWraper;
 
 import java.security.InvalidParameterException;
 
+/**
+ * Sentence element wrapper
+ */
 public class SentenceElement {
     public String value;
 
