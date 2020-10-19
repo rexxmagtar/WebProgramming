@@ -1,6 +1,0 @@
-окт. 19, 2020 3:25:07 AM com.company.Main main
-SEVERE: Got error!!!
-java.security.InvalidParameterException: mark cannot be longer than 1 char
-	at com.company.TextWraper.SentenceElement.<init>(SentenceElement.java:18)
-	at com.company.Main.main(Main.java:37)
-
