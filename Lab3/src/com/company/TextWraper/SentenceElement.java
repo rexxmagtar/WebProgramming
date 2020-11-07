@@ -11,11 +11,15 @@ public class SentenceElement {
     public enum type{
         mark,
         word,
-        codeBlock
     }
 
     public type elementType;
 
+    /**
+     * Throws InvalidParameterException if created element is a mark symbol and is longer than 1 char.
+     * @param value
+     * @param type
+     */
     public SentenceElement(String value, type type) {
 
         if(type == SentenceElement.type.mark && value.length()>1){

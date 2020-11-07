@@ -32,7 +32,7 @@ public class NormalTextParser {
 
         ArrayList<Pair<String, Integer>> codes = new ArrayList<>();
 
-        String codeBlockRegex = "<code>(\\n|.)*<\\/code>";
+        String codeBlockRegex = "<code>(\\n|.|\\t|\\r)*<\\/code>";
 
         Matcher m = Pattern.compile(codeBlockRegex).matcher(text);
 
@@ -42,7 +42,7 @@ public class NormalTextParser {
 
         text = text.replaceAll(codeBlockRegex, "<code></code>");
 
-       /* System.out.println("Code wrapped: ");
+      /*  System.out.println("Code wrapped: ");
         System.out.println(text);*/
 
         ArrayList<String> paragraphStrings = new ArrayList<>();

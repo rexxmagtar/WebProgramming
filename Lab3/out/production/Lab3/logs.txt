@@ -1,0 +1,2 @@
+окт. 19, 2020 2:40:53 PM com.company.Main main
+INFO: Programm started

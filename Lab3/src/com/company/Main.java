@@ -5,7 +5,8 @@ import com.company.TextWraper.TextManager;
 import com.company.parsers.NormalTextParser;
 
 import java.io.IOException;
-import java.security.InvalidParameterException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ResourceBundle;
 import java.util.logging.*;
 
@@ -18,7 +19,7 @@ public class Main {
 
         Logger logger = Logger.getLogger("MyLogger");
 
-        FileHandler handler= new FileHandler("C:\\BSU_Season5\\Webprogramming\\Lab3\\src\\logs.txt");
+        FileHandler handler = new FileHandler("C:\\BSU_Season5\\Webprogramming\\Lab3\\src\\logs.txt");
 
 
         logger.addHandler(handler);
@@ -29,20 +30,18 @@ public class Main {
 
         handler.setFormatter(formatter);
 
-        String text = "Интеллект ::::::::::::::::::::::: арбус ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; естественно понимает под собой интеллигибельный закон внешнего мира, открывая новые горизонты. Надстройка нетривиальна. Структурализм абстрактен. Наряду с этим ощущение мира решительно контролирует непредвиденный гравитационный парадокс. Надстройка нетривиальна. Интеллект естественно понимает\n" +
-                "               \n" +
-                "                Сомнение рефлектирует естественный закон исключенного третьего. Аксиома силлогизма, по определению, представляет собой неоднозначный предмет деятельности. Гедонизм осмысляет дедуктивный метод. Наряду с этим ощущение мира решительно контролирует непредвиденный гравитационный парадокс. Созерцание непредсказуемо. Интеллект естественно пон\n" +
-                "\n" +
-                "                Дискретность амбивалентно Яхта яарбус транспонирует гравитационный парадокс. Дискретность амбивалентно транспонирует гравитационный парадокс. Надстройка нетривиальна. undefined. Надстройка нетривиальна. Смысл жизни, следовательно, творит данный закон внешнего мира. Импликация, следовательно, контролирует бабувизм, открывая новые горизонт\n" +
-                "\n" +
-                "<code>\n" +
-                "\n" +
-                "int Main(){\n" +
-                "\n" +
-                "System.out.println(\"Hello Ivan\");\n" +
-                "}\n" +
-                "\n" +
-                "</code>";
+        logger.info("Programm started");
+
+        String text;
+
+
+        try {
+            text = new String(Files.readAllBytes(Path.of("C:\\BSU_Season5\\Webprogramming\\Lab3\\src\\input.txt")));
+
+        } catch (Exception e) {
+            logger.severe("Failed to read file:\n " + e.getMessage());
+            return;
+        }
 
         System.out.println("\n" + mainBundle.getString("RealText") + "\n");
         System.out.println(text);
@@ -67,6 +66,7 @@ public class Main {
         System.out.println("\n" + mainBundle.getString("LettersToUpperCase"));
         System.out.println(NormalTextParser.GetString(normalText));
 
+        /*logger.info("Some info");*/
 
         //Testing error handling.
        /* try {
