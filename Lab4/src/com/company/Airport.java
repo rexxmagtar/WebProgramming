@@ -1,5 +1,8 @@
 package com.company;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.concurrent.Semaphore;
@@ -8,6 +11,12 @@ import java.util.concurrent.Semaphore;
  * Controls all flights and passengers transfers.
  */
 public class Airport {
+
+
+    /**
+     * Logger for airport.
+     */
+    private static final Logger AIRPORT_LOGGER = LogManager.getLogger("Airport");
 
     /**
      * Number of all terminals in airport
@@ -29,6 +38,10 @@ public class Airport {
      */
     private int TerminalStopDuration = 1000;
 
+    /**
+     * Gets current number of passengers in the airport.
+     * @return
+     */
     public ArrayList<Passenger> getCurrentPassengers() {
         return CurrentPassengers;
     }
@@ -36,12 +49,20 @@ public class Airport {
     /**
      * Simulating of waiting at terminal
      */
-    private void StayAtTerminal() throws InterruptedException {
+    private void StayAtTerminal(Passenger passenger) throws InterruptedException {
+
+        AIRPORT_LOGGER.info(passenger.getName() +" came to terminal and started to wait in queue");
+
         TerminalsSemaphore.acquire();
+
+        AIRPORT_LOGGER.info(passenger.getName() +" entered terminal");
 
         Thread.sleep(TerminalStopDuration);
 
         TerminalsSemaphore.release();
+
+        AIRPORT_LOGGER.info(passenger.getName() +" left the terminal");
+
     }
 
     public Airport(int terminalCount) {
@@ -61,9 +82,13 @@ public class Airport {
      */
     public synchronized void ReceivePassenger(Passenger passenger) throws InterruptedException {
 
-        StayAtTerminal();
+        AIRPORT_LOGGER.info(passenger.getName() +" came to to airport. Sending him to terminals");
+
+        StayAtTerminal(passenger);
 
         AddPassenger(passenger);
+
+        AIRPORT_LOGGER.info(passenger.getName() +" entered waiting room");
     }
 
     /**
@@ -74,7 +99,7 @@ public class Airport {
      */
     public synchronized void ReleasePassenger(Passenger passenger) throws InvalidParameterException, InterruptedException {
 
-        StayAtTerminal();
+        StayAtTerminal(passenger);
 
         RemovePassenger(passenger);
     }

@@ -30,9 +30,7 @@ public class Ticket {
      * @return
      */
     public boolean IsExpired(Date currentDate){
-
         return currentDate.after(ExpirationDate);
-
     }
 
     public Ticket(String destination, Date expirationDate) {

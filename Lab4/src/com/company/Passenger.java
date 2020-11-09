@@ -3,15 +3,19 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Semaphore;
 import java.util.function.Predicate;
+import org.apache.log4j.*;
+
 
 /**
  * Describes passenger behaviour.
  */
 public class Passenger implements Runnable {
+
+    /**
+     * Logger for passenger.
+     */
+    private static final Logger PASSENGER_LOGGER = LogManager.getLogger("Passenger");
 
     /**
      * Passenger's name
@@ -21,9 +25,9 @@ public class Passenger implements Runnable {
     /**
      * Used during ticket swaps.
      */
-    private static Semaphore TicketsSwapSemaphore = new Semaphore(2,false);
+    private static Object PassengersCheckAmountLocker = new Object();
 
-    private static ArrayBlockingQueue<Passenger> TicketSwapRequestQueue = new ArrayBlockingQueue<Passenger>(1000);
+    private static ArrayList<Passenger> TicketSwapRequestList = new ArrayList<>();
 
     /**
      * Passenger's ticket.
@@ -84,37 +88,34 @@ public class Passenger implements Runnable {
     @Override
     public void run() {
 
-        System.out.println(Name + ": Started. Entering airport");
+       PASSENGER_LOGGER.info(Name + ": Started. Entering airport");
 
         Airport.AddPassenger(this);
 
-        System.out.println(Name + ": Entered airport");
+       PASSENGER_LOGGER.info(Name + ": Entered airport");
 
         Random random = new Random();
 
         while (!Tickets.isEmpty()) {
 
             try {
-                System.out.println(Name + ": Waiting in waiting room");
+               PASSENGER_LOGGER.info(Name + ": Waiting in waiting room");
 
                 Thread.sleep(WaitingRoomDuration);
 
-                System.out.println(Name + ": Finished to wait in waiting room");
+               PASSENGER_LOGGER.info(Name + ": Finished to wait in waiting room");
 
-               boolean wantToExchange =  random.nextBoolean();
+                boolean wantToExchange = random.nextBoolean();
 
-               if(wantToExchange){
-                   TicketsSwapSemaphore.acquire();
-                   TicketSwapRequestQueue.add(this);
+                if (wantToExchange) {
 
-                   while (TicketSwapRequestQueue.size()!=2){
-                       Thread.sleep(200);
-                   }
+                   PASSENGER_LOGGER.info(Name + ": Wants to swap tickets");
 
-               }
+                    SwapTickets();
+                }
 
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                PASSENGER_LOGGER.error(e.getMessage());
             }
 
             long currentTime = new Date().getTime();
@@ -124,8 +125,8 @@ public class Passenger implements Runnable {
                 public boolean test(Ticket ticket) {
 
                     if (ticket.IsExpired(new Date(currentTime))) {
-                        System.out.println(Name + ": Ticket to " + ticket.getDestination() + " expired."
-                                + "Expiration date: " + ticket.getExpirationDate() +". Removing from list");
+                       PASSENGER_LOGGER.info(Name + ": Ticket to " + ticket.getDestination() + " expired."
+                                + "Expiration date: " + ticket.getExpirationDate() + ". Removing from list");
                         return true;
                     }
                     return false;
@@ -138,7 +139,7 @@ public class Passenger implements Runnable {
                 if (Tickets.get(i).getExpirationDate().getTime() - currentTime <= TimeDifferenceToTakeFlight) {
                     canTravel = true;
 
-                    System.out.println(Name + ": Found  nearest flight: " + Tickets.get(i));
+                   PASSENGER_LOGGER.info(Name + ": Found  nearest flight: " + Tickets.get(i));
 
                     Tickets.remove(i);
                     break;
@@ -146,45 +147,100 @@ public class Passenger implements Runnable {
             }
 
             if (!canTravel) {
-                System.out.println(Name + ": no tickets are available for now. " + new Date(currentTime) + " .Keep waiting");
+               PASSENGER_LOGGER.info(Name + ": no tickets are available for now. " + new Date(currentTime) + " .Keep waiting");
 
                 continue;
             }
 
-            System.out.println(Name + ": going to terminal to leave airport");
+           PASSENGER_LOGGER.info(Name + ": going to terminal to leave airport");
 
             try {
                 Airport.ReleasePassenger(this);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                PASSENGER_LOGGER.error(e.getMessage());
             }
 
-            System.out.println(Name + ": flying started");
+           PASSENGER_LOGGER.info(Name + ": flying started");
             try {
                 Thread.sleep(2 * FlightDuration);
             } catch (InterruptedException ex) {
-                System.out.println(ex.getMessage());
+               PASSENGER_LOGGER.error(ex.getMessage());
             }
 
-            System.out.println(Name + ": flying finished");
+           PASSENGER_LOGGER.info(Name + ": flying finished");
 
-            System.out.println(Name + ": going to terminal to enter airport");
+           PASSENGER_LOGGER.info(Name + ": going to terminal to enter airport");
 
             try {
                 Airport.ReceivePassenger(this);
             } catch (InterruptedException ex) {
-                System.out.println(ex.getMessage());
+               PASSENGER_LOGGER.info(ex.getMessage());
             }
 
-            System.out.println(Name + ": entered  in airport.");
+           PASSENGER_LOGGER.info(Name + ": entered  in airport.");
 
         }
 
-        System.out.println(Name + ": Exiting airport.  No more tickets left");
+       PASSENGER_LOGGER.info(Name + ": Exiting airport.  No more tickets left");
 
-        Airport.RemovePassenger(this);
+        synchronized (TicketSwapRequestList) {
 
-        System.out.println(Name + ": ended");
+            Airport.RemovePassenger(this);
+
+            if (Airport.getCurrentPassengers().size() == 1) {
+
+               PASSENGER_LOGGER.info(Name + ": Last passenger left in airport. Notifying it");
+
+                TicketSwapRequestList.notify();
+            }
+        }
+
+       PASSENGER_LOGGER.info(Name + ": ended");
+
+    }
+
+    /**
+     * Doing swap tickets with first found passenger with same goal.
+     * @throws InterruptedException
+     */
+    private void SwapTickets() throws InterruptedException {
+
+        synchronized (TicketSwapRequestList) {
+
+            TicketSwapRequestList.add(this);
+
+            if (TicketSwapRequestList.size() == 2) {
+
+                //Doing swap
+
+                Ticket temp = TicketSwapRequestList.get(0).getTickets().get(0);
+
+               PASSENGER_LOGGER.info(Name + ": Found passenger to swap with ("+ TicketSwapRequestList.get(0).Name+"). " +
+                        "Doing swap between " + temp + "(hes) and " + Tickets.get(0)+"(my)");
+
+                long currentTime = new Date().getTime();
+
+                if (temp.IsExpired(new Date(currentTime)) || Tickets.get(0).IsExpired(new Date(currentTime))) {
+                   PASSENGER_LOGGER.info(Name + ": One or both tickets expired. Swap canceled");
+                }
+
+                TicketSwapRequestList.get(0).Tickets.set(0, Tickets.get(0));
+
+                Tickets.set(0, temp);
+
+                TicketSwapRequestList.clear();
+
+                TicketSwapRequestList.notify();
+
+            } else {
+                if (Airport.getCurrentPassengers().size() != 1) {
+                    TicketSwapRequestList.wait();
+                }
+
+            }
+
+
+        }
 
     }
 }
